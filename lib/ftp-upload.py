@@ -5,13 +5,15 @@
 import ftplib
 import tempfile
 import argparse
+import os
 
 if __name__ == "__main__":
   parser = argparse.ArgumentParser()
+  # TODO Rename argument to CERTBOT_VALIDATION
   parser.add_argument("-c", "--challenge", help='HTTP-01 Challenge token', type=str, required=True)
   args = parser.parse_args()
 
-  ftp = ftplib.FTP('165.22.94.166', 'user', '123')
+  ftp = ftplib.FTP(os.environ['FTP_HOST'], os.environ['FTP_USER'], os.environ['FTP_PASSWORD'])
 
   temp = tempfile.TemporaryFile()
   temp.write(args.challenge.encode())
