@@ -27,8 +27,10 @@ export FTP_HOST=161.35.213.167
 export FTP_USER=user
 export FTP_PASSWORD=xxx
 
+EMAIL=xxx
+
 ./create_certificate.sh -d letsencrypt-beispiel-1.experimental-software.com,letsencrypt-beispiel-2.experimental-software.com \
-    -e jmewes@experimental-software.com
+    -e ${EMAIL}
 ```
 
 ## Testen
